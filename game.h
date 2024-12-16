@@ -5,7 +5,7 @@ class game
 {
 private:
     std::vector<std::vector<board>> gameboard;
-    board result;
+    board resultboard;
 public:
     game();
     void convertto3x3();
@@ -13,4 +13,8 @@ public:
     void show();
     void handleendofmove(int row, int col);
     bool finished();
+    int result()
+    {
+        return resultboard.result();
+    }
 };

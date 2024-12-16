@@ -12,7 +12,7 @@ game::game()
 void game::convertto3x3()
 {
     for (int i = 0; i < 3; i++)
-        for (int j = 0; j < 3; j++) result.setblock(i, j, gameboard[i][j].blockresult());
+        for (int j = 0; j < 3; j++) resultboard.setblock(i, j, gameboard[i][j].blockresult());
 }
 
 void game::play(player& p, int row, int col)
@@ -32,13 +32,17 @@ void game::show()
             for (int j = 0; j < 3; j++) gameboard[i][j].showrow(row);
             std::cout << '\n';
         }
-        if (i != 2) std::cout << "_________________________________________\n";
+        if (i != 2) std::cout << "\n";
     }
 }
 
 bool game::finished()
 {
-    return result.finished();
+    if (resultboard.Xwin() || resultboard.Owin()) return true;
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            if (!gameboard[i][j].finished()) return false;
+    return true;
 }
 
 void game::handleendofmove(int row, int col)
