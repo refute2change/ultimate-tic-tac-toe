@@ -1,10 +1,10 @@
 build: compile link clean
 
 compile:
-	g++ -c *.cpp # -I".\Externals\include" -DSFML_STATIC
+	g++ -c *.cpp -I".\Externals\include"
 
 link:
-	g++ *.o -o main # -L".\Externals\lib" -lsfml-audio-s -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lvorbisfile -lvorbis -lvorbisenc -lopengl32 -lopenal32 -lfreetype -lwinmm -lgdi32 -mwindows -lflac -logg
+	g++ *.o -o main -L".\Externals\lib" -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network
 
 clean:
 	rm *.o

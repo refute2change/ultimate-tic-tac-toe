@@ -55,4 +55,4 @@ void game::handleendofmove(int row, int col)
     else for (int i = 0; i < 3; i++)
         for (int j = 0; j < 3; j++)
             if (!gameboard[i][j].finished()) gameboard[i][j].playable = true;
-}   
+}
